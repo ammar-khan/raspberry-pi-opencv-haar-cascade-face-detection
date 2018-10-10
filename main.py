@@ -59,7 +59,7 @@ class StreamHandler(Handler):
 
             # OpenCV detection
             detections = _opencv.haarcascade_frontalface_default_detector(gray,
-                                                                          scale_factor=0,
+                                                                          scale_factor=1.0,
                                                                           min_neighbours=5,
                                                                           min_size=(15, 15))
 
