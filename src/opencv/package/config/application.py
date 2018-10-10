@@ -7,5 +7,5 @@
 # OpenCV configuration
 
 #
-HAARCASCADE_FRONTALFACE_DEFAULT_PATH = '/home/pi/code/raspberry-pi-opencv-haar-cascade-detection/src/opencv/cascade' \
+HAARCASCADE_FRONTALFACE_DEFAULT_PATH = '/home/pi/code/raspberry-pi-opencv-haar-cascade-face-detection/src/opencv/cascade' \
                                        '/haarcascade_frontalface_default.xml'
