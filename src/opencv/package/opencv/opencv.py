@@ -28,7 +28,9 @@ class OpenCV:
     # Method to return OpenCV haarcascade_frontalface_default_detector
     #
     # @param frame - image frame
-    # @param up_sample - enlarge image for better capture (0-1)
+    # @param scale_factor - reduce image
+    # @param min_neighbours - minimun neighbours of detection
+    # @param min_size - minimun size to detection
     #
     # @return Array of detection(s)
     ##
@@ -36,11 +38,9 @@ class OpenCV:
                                                  frame,
                                                  scale_factor=1.1,
                                                  min_neighbours=5,
-                                                 min_size=(30, 30),
-                                                 max_size=(200, 200)):
+                                                 min_size=(30, 30)):
 
         return self._haarcascade_frontalface_default.detectMultiScale(image=frame,
                                                                       scaleFactor=scale_factor,
                                                                       minNeighbors=min_neighbours,
-                                                                      minSize=min_size,
-                                                                      maxSize=max_size)
+                                                                      minSize=min_size)
