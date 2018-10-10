@@ -52,57 +52,33 @@ class StreamHandler(Handler):
             frame = capture.read()
 
             # Down size frame to 50% (to increase performance on Raspberry Pi)
-            # frame = _frame.scale(frame=frame, scale=0.5)
+            frame = _frame.scale(frame=frame, scale=0.5)
 
             # Convert frame to gray (to increase performance on Raspberry Pi)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-            # Dlib detection (set `up_sample=0` to increase performance on Raspberry Pi)
-            # detections = _dlib.frontal_face_detector(frame=gray, up_sample=0)
+            # OpenCV detection
             detections = _opencv.haarcascade_frontalface_default_detector(gray,
-                                                                          scale_factor=1.1,
+                                                                          scale_factor=0,
                                                                           min_neighbours=5,
-                                                                          min_size=(30, 30))
+                                                                          min_size=(15, 15))
 
             # Up size frame to 50% (how the frame was before down sizing)
-            # frame = _frame.scale(frame=frame, scale=2)
+            frame = _frame.scale(frame=frame, scale=2)
 
             # If Dlib returns any detection
             for (x, y, w, h) in detections:
 
                 # Up size coordinate to 50% (according to the frame size before down sizing)
-                coordinates = {'left': x,
-                               'top': y,
-                               'right': x + w,
-                               'bottom': y + h}
+                coordinates = {'left': x * 2,
+                               'top': y * 2,
+                               'right': x * 2 + w * 2,
+                               'bottom': y * 2 + h * 2}
 
                 # Draw box around detection with text on the frame
                 frame = _draw.rectangle(frame=frame,
                                         coordinates=coordinates,
                                         text='Detected')
-
-            '''for det in detections:
-
-                # Up size coordinate to 50% (according to the frame size before down sizing)
-                coordinates = {'left': det.left() * 2,
-                               'top': det.top() * 2,
-                               'right': det.right() * 2,
-                               'bottom': det.bottom() * 2}
-
-                # Draw box around detection with text on the frame
-                frame = _draw.rectangle(frame=frame,
-                                        coordinates=coordinates,
-                                        text='Detected')
-
-                # Determine the facial landmarks for the face region
-                # (using gray image to increase performance on Raspberry Pi)
-                landmarks = _dlib.shape_predictor_68_face_landmarks(gray, det)
-
-                # Draw circle around landmarks on the frame
-                for (x, y) in landmarks:
-                    frame = _draw.circle(frame=frame,
-                                         coordinates={'left': x * 2, 'top': y * 2},
-                                         radius=0.5) '''
 
             # Write date time on the frame
             frame = _draw.text(frame=frame,
