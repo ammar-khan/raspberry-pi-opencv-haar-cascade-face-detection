@@ -1,5 +1,5 @@
 ==================================================================
-OpenCV (Open Source Computer Vision) Face Detection
+OpenCV (Open Source Computer Vision) Haar Cascade Face Detection
 ==================================================================
 
 Prerequisite(s):
@@ -18,7 +18,7 @@ Prerequisite(s):
 
 Introduction:
 -------------
-This is an example of how to use OpenCV face detection on Raspberry Pi 3 Model B+ efficiently.
+This is an example of how to use OpenCV haar cascade face detection on Raspberry Pi 3 Model B+ efficiently.
 
 Configuration:
 --------------
