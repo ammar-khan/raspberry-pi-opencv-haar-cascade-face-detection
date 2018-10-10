@@ -36,7 +36,7 @@ class OpenCV:
     ##
     def haarcascade_frontalface_default_detector(self,
                                                  frame,
-                                                 scale_factor=1.1,
+                                                 scale_factor=1.0,
                                                  min_neighbours=5,
                                                  min_size=(30, 30)):
 
