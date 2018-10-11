@@ -66,7 +66,7 @@ class StreamHandler(Handler):
             # Up size frame to 50% (how the frame was before down sizing)
             frame = _frame.scale(frame=frame, scale=2)
 
-            # If Dlib returns any detection
+            # If returns any detection
             for (x, y, w, h) in detections:
 
                 # Up size coordinate to 50% (according to the frame size before down sizing)
