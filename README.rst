@@ -2,8 +2,17 @@
 OpenCV (Open Source Computer Vision) Haar Cascade Face Detection
 ==================================================================
 
-Prerequisite(s):
-----------------
+Prerequisite(s) Hardware:
+-------------------------
+
+- Raspberry Pi 3 Model B+
+- HDMI -> TV/Monitor Screen
+- Micro USB Power Cable -> 2A-5V Power Adopter
+- USB Keyboard
+- Pi Camera or USB Camera
+
+Prerequisite(s) Software:
+-------------------------
 
 - Python 3.5>
 - pip
@@ -12,17 +21,21 @@ Prerequisite(s):
 - imutils
 - PIL
 
-.. _Prerequisites Installation Guide: https://github.com/ammar-khan
+.. _Prerequisites Installation Guide: https://github.com/ammar-khan/raspberry-pi-3-model-b-plus
 
 `Prerequisites Installation Guide`_
 
 Introduction:
 -------------
-This is an example of how to use OpenCV haar cascade face detection on Raspberry Pi 3 Model B+ efficiently.
+This is a very basic tutorial to learn OpenCV haar cascade face detection on Raspberry Pi 3 Model B+ efficiently.
+This example is using http streaming which make it easy to preview in browser.
 
 Configuration:
 --------------
-Refer to: ``src/common/package/config`` and ``src/opencv/package/config``
+You need to change configuration files as per your environments:
+
+- ``src/common/package/config``
+- ``src/opencv/package/config``
 
 Execute:
 --------
